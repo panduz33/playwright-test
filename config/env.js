@@ -14,9 +14,9 @@ for (const key of requiredVars) {
   }
 }
 
-export const BASE_URL = getEnv('BASE_URL');
-export const STANDARD_USER = getEnv('STANDARD_USER');
-export const LOCKED_OUT_USER = getEnv('LOCKED_OUT_USER');
-export const PROBLEM_USER = getEnv('PROBLEM_USER');
-export const PERFORMANCE_GLITCH_USER = getEnv('PERFORMANCE_GLITCH_USER');
-export const PASSWORD = getEnv('PASSWORD');
+export const BASE_URL = process.env.BASE_URL;
+export const STANDARD_USER = process.env.STANDARD_USER;
+export const LOCKED_OUT_USER = process.env.LOCKED_OUT_USER;
+export const PROBLEM_USER = process.env.PROBLEM_USER;
+export const PERFORMANCE_GLITCH_USER = process.env.PERFORMANCE_GLITCH_USER;
+export const PASSWORD = process.env.PASSWORD;
