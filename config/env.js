@@ -1,10 +1,17 @@
 import dotenv from 'dotenv';
-dotenv.config(); // Load environment variables from .env file
 
-function getEnv(key) {
-  const value = process.env[key];
-  if (!value) throw new Error(`Missing environment variable: ${key}`);
-  return value;
+// Load .env only if running locally
+if (process.env.CI !== 'true') {
+  dotenv.config();
+}
+
+// Validate environment variables
+const requiredVars = ['BASE_URL', 'STANDARD_USER', 'LOCKED_OUT_USER', 'PROBLEM_USER', 'PERFORMANCE_GLITCH_USER', 'PASSWORD'];
+
+for (const key of requiredVars) {
+  if (!process.env[key]) {
+    throw new Error(`Missing required environment variable: ${key}`);
+  }
 }
 
 export const BASE_URL = getEnv('BASE_URL');
